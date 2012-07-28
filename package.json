@@ -1,0 +1,53 @@
+{
+  "name": "falcon",
+  "description": "Kohana inspired web development framework",
+  "version": "0.0.0-1",
+  "homepage": "http://github.com/sadjow/falcon",
+  "keywords": [
+    "falcon",
+    "framework",
+    "kohana",
+    "web",
+    "hmvc",
+    "mvc",
+    "module",
+    "modulate"
+  ],
+  "author": {
+    "name": "Sadjow Leão",
+    "email": "sadjow@gmail.com"
+  },
+  "main": "./index.coffee",
+  "bugs": {
+    "url": "http://github.com/sadjow/falcon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sadjow/falcon.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sadjow/falcon/blob/master/LICENSE"
+    }
+  ],
+  "_id": "falcon@0.0.0-1",
+  "dependencies": {
+    "underscore": "latest",
+    "coffee-script": "latest"
+  },
+  "_npmUser": {
+    "name": "sadjow",
+    "email": "sadjow@gmail.com"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "_engineSupported": true,
+  "_npmVersion": "1.1.12",
+  "_nodeVersion": "v0.8.1",
+  "_defaultsLoaded": true,
+  "_from": "falcon@latest"
+}
