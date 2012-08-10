@@ -17,7 +17,7 @@
     "name": "Sadjow Leão",
     "email": "sadjow@gmail.com"
   },
-  "main": "./index.coffee",
+  "main": "./index.js",
   "bugs": {
     "url": "http://github.com/sadjow/falcon/issues"
   },
@@ -34,7 +34,8 @@
   "_id": "falcon@0.0.0-1",
   "dependencies": {
     "underscore": "latest",
-    "coffee-script": "latest"
+    "coffee-script": "latest",
+    "express": "*"
   },
   "_npmUser": {
     "name": "sadjow",
