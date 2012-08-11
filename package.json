@@ -34,6 +34,7 @@
   "_id": "falcon@0.0.0-1",
   "dependencies": {
     "underscore": "latest",
+    "underscore.string": "*",
     "coffee-script": "latest",
     "express": "*"
   },

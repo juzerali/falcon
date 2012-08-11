@@ -3,6 +3,7 @@ Falcon framework
 ###
 express = require 'express'
 _       = require 'underscore'
+_s      = require 'underscore.string'
 fs      = require 'fs'
 path    = require 'path'
 
@@ -32,20 +33,41 @@ falcon.prototype.addModule = (module) ->
 Init the modules
 ###
 falcon.prototype.initModules = () ->
+
   for m, i in @modules
     
     moduleBaseName = path.basename(m)
+
     @modulesTree[moduleBaseName] = {}
     @modulesTree[moduleBaseName].initFiles = []
 
     files = fs.readdirSync m
     for f, i in files
-      #fs.statSync 
+      
       resolved = path.resolve m, f
       stats = fs.statSync resolved
+
       if not stats.isDirectory()
-        @modulesTree[moduleBaseName].initFiles.push f
+        if _s.startsWith f, 'init'
+          @modulesTree[moduleBaseName].initFiles.push f
+        else
+          console.log f, " doesn't is a init file."
+      else
+        if f == 'classes'
+          readClassesDir resolved
+        else if f == 'config'
+          console.log 'Read config dir'
+        else if f == 'views'
+          console.log 'Read views dir'
+        else if f == 'media'
+          console.log 'Read media dir'
 
   console.log @modulesTree
+
+
+readClassesDir = (dir) ->
+  throw "This is now implement yet."
+
+
 
 module.exports = falcon
