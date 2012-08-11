@@ -56,17 +56,32 @@ falcon.prototype.initModules = () ->
         if f == 'classes'
           readClassesDir resolved
         else if f == 'config'
-          console.log 'Read config dir'
+          @modulesTree[moduleBaseName].config = readConfigDir resolved
         else if f == 'views'
           console.log 'Read views dir'
         else if f == 'media'
           console.log 'Read media dir'
 
-  console.log @modulesTree
+  console.log '%j', @modulesTree
 
 
 readClassesDir = (dir) ->
   files = fs.readdirSync dir
+
+###
+Read the config dir
+###
+readConfigDir = (dir) -> 
+  files = fs.readdirSync dir
+  a = {}
+
+  for f, i in files
+    keyname = path.basename f, path.extname(f)
+    resolved = path.resolve dir, f
+    a[keyname] = require resolved
+
+  return a
+
 
 
 
