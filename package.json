@@ -1,7 +1,7 @@
 {
   "name": "falcon",
   "description": "Kohana inspired web development framework",
-  "version": "0.0.0-1",
+  "version": "0.0.0-2",
   "homepage": "http://github.com/sadjow/falcon",
   "keywords": [
     "falcon",

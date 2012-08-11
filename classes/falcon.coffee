@@ -66,7 +66,7 @@ falcon.prototype.initModules = () ->
 
 
 readClassesDir = (dir) ->
-  throw "This is now implement yet."
+  files = fs.readdirSync dir
 
 
 
