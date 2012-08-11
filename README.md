@@ -23,15 +23,15 @@ The Peregrine Falcon is renowned for its speed, reaching over 322 km/h (200 mph)
     |   |-- views
     |   |   |-- admin
     |   |   |   `-- posts
-    |   |   |       |-- edit.ejs
-    |   |   |       |-- index.ejs
-    |   |   |       |-- new.ejs
+    |   |   |       |-- edit.jade
+    |   |   |       |-- index.jade
+    |   |   |       |-- new.jade
     |   |   |-- layouts
-    |   |   |   `-- application_layout.ejs
+    |   |   |   `-- application_layout.jade
     |   |   |-- partials
     |   |   `-- posts
-    |   |       |-- index.ejs
-    |   |       `-- show.ejs
+    |   |       |-- index.jade
+    |   |       `-- show.jade
     |   `-- helpers
     |       |-- admin
     |       |   |-- posts_helper.js
