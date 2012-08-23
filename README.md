@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/sadjow/falcon.png)](http://travis-ci.org/sadjow/falcon)
 Falcon Framework
 ======
 Kohana inspired web development framework
