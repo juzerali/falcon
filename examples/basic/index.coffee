@@ -2,12 +2,12 @@
 Basic example
 ###
 
-falcon = require '../../classes/falcon'
+falcon = require '../../lib/falcon'
 
 app = new falcon()
 
-app.addModule './basic-module'
+app.modules ['./basic-module']
 
-app.initModules()
+console.log app.modulesTree()
 
 #console.log app
