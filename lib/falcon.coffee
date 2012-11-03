@@ -13,19 +13,19 @@ falcon = () ->
   _.extend @, app
 
   # Inits the module arrays
-  @_modules = []
-  @_modulesTree = {}
+  @modules = []
+  @modulesTree = {}
 
   @
 
-falcon.prototype.modulesTree = () -> @_modulesTree
+falcon.prototype.modulesTree = () -> @modulesTree
 
-falcon.prototype.modules = (modules) ->
+falcon.__defineSetter__ 'modules', (modules) ->
   for i, m in modules
     @addModule m
 
   @initModules()
-  console.log '%j', @_modulesTree
+  console.log '%j', @modulesTree
 
 ###
 Add the module folder if theys exists.
@@ -35,7 +35,7 @@ falcon.prototype.addModule = (module) ->
   resolvedModulePath = path.resolve './', module
 
   if fs.existsSync(resolvedModulePath)
-    @_modules.push resolvedModulePath
+    @modules.push resolvedModulePath
   else
     throw "This module path(#{resolvedModulePath}) doesn't exists."
 
@@ -44,19 +44,19 @@ Init the modules
 ###
 falcon.prototype.initModules = () ->
 
-  for m, i in @_modules
+  for m, i in @modules
     
     moduleBaseName = path.basename(m)
 
     # Adds the module to the tree.
-    @_modulesTree[moduleBaseName] = {}
+    @modulesTree[moduleBaseName] = {}
 
     # Work with the module.
-    @_modulesTree[moduleBaseName].initFiles    = []
-    @_modulesTree[moduleBaseName].libFiles     = []
-    @_modulesTree[moduleBaseName].configFiles  = []
-    @_modulesTree[moduleBaseName].viewFiles    = []
-    @_modulesTree[moduleBaseName].mediaFiles   = []
+    @modulesTree[moduleBaseName].initFiles    = []
+    @modulesTree[moduleBaseName].libFiles     = []
+    @modulesTree[moduleBaseName].configFiles  = []
+    @modulesTree[moduleBaseName].viewFiles    = []
+    @modulesTree[moduleBaseName].mediaFiles   = []
 
     # Read the files in sync mode.
     ###
@@ -79,20 +79,21 @@ falcon.prototype.initModules = () ->
 
       if not stats.isDirectory()
         if _s.startsWith file, 'init'
-          @_modulesTree[moduleBaseName].initFiles.push file
+          @modulesTree[moduleBaseName].initFiles.push file
           require resolvedFilePath
         else
           console.log resolvedFilePath, " doesn't is a init file."
       else
         if file == 'lib'
-          @_modulesTree[moduleBaseName].libFiles     = dirToObject resolvedFilePath
+          @modulesTree[moduleBaseName].libFiles     = dirToObject resolvedFilePath
         else if file == 'config'
-          @_modulesTree[moduleBaseName].configFiles  = dirToObject resolvedFilePath
+          @modulesTree[moduleBaseName].configFiles  = dirToObject resolvedFilePath
         else if file == 'views'
-          @_modulesTree[moduleBaseName].viewFiles    = dirToObject resolvedFilePath
+          @modulesTree[moduleBaseName].viewFiles    = dirToObject resolvedFilePath
         else if file == 'media'
-          @_modulesTree[moduleBaseName].mediaFiles   = dirToObject resolvedFilePath
+          @modulesTree[moduleBaseName].mediaFiles   = dirToObject resolvedFilePath
 
+  console.log @modulesTree
 
 dirToObject = (dir) ->
   console.log "Reading dir: ", dir
