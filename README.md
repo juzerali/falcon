@@ -9,6 +9,11 @@ The Peregrine Falcon is renowned for its speed, reaching over 322 km/h (200 mph)
 ## #falcon.js IRC Channel at freenode.net
 
 
+## Introduce! What is the falcon framework ?
+
+The falcon framework is a framework based on express.js and inspirated by Kohana Framework from the PHP language. 
+
+
 ## Module Structure
     
     .
