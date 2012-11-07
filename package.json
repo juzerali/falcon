@@ -42,7 +42,9 @@
     "name": "sadjow",
     "email": "sadjow@gmail.com"
   },
-  "devDependencies": {},
+  "devDependencies": {
+  "commander.js": "*"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
